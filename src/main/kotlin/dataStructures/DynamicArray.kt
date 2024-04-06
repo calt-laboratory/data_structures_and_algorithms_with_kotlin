@@ -21,17 +21,19 @@ class DynamicArray<T> {
         return array[idx]
     }
 
-    fun append(new_item: T) {
+    fun append(newItem: T) {
         if (nItems == arrayCapacity) {
-            val newCapacity = this.arrayCapacity * 2
-            resizeArray(newCapacity = newCapacity)
+            this.resizeArray()
         }
+        this.array[this.nItems] = newItem
+        this.nItems += 1
     }
 
-    private fun resizeArray(newCapacity: Int) : Array<Any?> {
+    private fun resizeArray() : Array<Any?> {
+        val newCapacity = this.arrayCapacity * 2
         val newArray = createArray(arrayCapacity = newCapacity)
 
-        for (i in 0 ..nItems) {
+        for (i in 0 until nItems) {
             newArray[i] = this.array[i]
         }
 
@@ -44,6 +46,4 @@ class DynamicArray<T> {
         val array = arrayOfNulls<Any?>(size = arrayCapacity)
         return array
     }
-
-
 }

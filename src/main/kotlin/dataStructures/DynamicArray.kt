@@ -2,9 +2,9 @@ package org.example.dataStructures
 
 class DynamicArray<T> {
 
-    private val nItems = 0
-    private val arrayCapacity = 1
-    private val array: Array<Any?>
+    private var nItems = 0
+    private var arrayCapacity = 1
+    private var array: Array<Any?>
 
     init {
         array = createArray(arrayCapacity = arrayCapacity)
@@ -21,8 +21,29 @@ class DynamicArray<T> {
         return array[idx]
     }
 
+    fun append(new_item: T) {
+        if (nItems == arrayCapacity) {
+            val newCapacity = this.arrayCapacity * 2
+            resizeArray(newCapacity = newCapacity)
+        }
+    }
+
+    private fun resizeArray(newCapacity: Int) : Array<Any?> {
+        val newArray = createArray(arrayCapacity = newCapacity)
+
+        for (i in 0 ..nItems) {
+            newArray[i] = this.array[i]
+        }
+
+        this.array = newArray
+        this.arrayCapacity = newCapacity
+        return this.array
+    }
+
     private fun createArray(arrayCapacity: Int) : Array<Any?> {
-        val array = arrayOfNulls<Any?>(arrayCapacity)
+        val array = arrayOfNulls<Any?>(size = arrayCapacity)
         return array
     }
+
+
 }

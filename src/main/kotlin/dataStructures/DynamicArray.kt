@@ -3,7 +3,7 @@ package org.example.dataStructures
 class DynamicArray<T> {
 
     private var nItems = 0
-    var arrayCapacity = 1
+    private var arrayCapacity = 1
     private var array: Array<Any?>
 
     init {
@@ -14,11 +14,11 @@ class DynamicArray<T> {
         return nItems
     }
 
-    fun getItem(idx: Int) : Any? {
-        if (idx <= 0 && idx >= this.nItems) {
+    operator fun get(idx: Int) : Any? {
+        if (idx < 0 || idx >= this.nItems) {
             throw IndexOutOfBoundsException()
         }
-        return array[idx]
+        return this.array[idx]
     }
 
     override fun toString() : String {

@@ -10,10 +10,10 @@ fun main() {
     dynamicArray.append(newItem = 42)
     println("Current number of items: ${dynamicArray.length()}")
     val idx0 = 0
-    println("Get item: ${dynamicArray.getItem(idx = 0)} at idx: $idx0")
+    println("Get item: ${dynamicArray.get(idx = 0)} at idx: $idx0")
     dynamicArray.append(newItem = 1987)
     val idx1 = 1
-    println("Get item: ${dynamicArray.getItem(idx = 1)} at idx: $idx1")
+    println("Get item: ${dynamicArray[1]} at idx: $idx1")
     println(dynamicArray)
     dynamicArray.append(newItem = 99)
     println(dynamicArray)

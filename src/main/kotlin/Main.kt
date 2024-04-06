@@ -14,4 +14,11 @@ fun main() {
     dynamicArray.append(newItem = 1987)
     val idx1 = 1
     println("Get item: ${dynamicArray.getItem(idx = 1)} at idx: $idx1")
+    println(dynamicArray)
+    dynamicArray.append(newItem = 99)
+    println(dynamicArray)
+    dynamicArray.append(newItem = 314152)
+    println(dynamicArray)
+    dynamicArray.append(newItem = 271828)
+    println(dynamicArray)
 }

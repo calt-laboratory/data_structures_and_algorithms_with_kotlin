@@ -18,9 +18,7 @@ class Stack<T> {
         return items.last()
     }
 
-    fun isEmpty() : Boolean {
-        return items.isEmpty()
-    }
+    fun isEmpty() : Boolean = items.isEmpty()
 
     override fun toString() : String = items.toString()
 }
